@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @GauravJ126
-- 👀 I’m interested in Cyber Security, Robotics and Automation 
+- 👋 Hi, I’m Gaurav Jagadeesh 
+- 👀 I’m interested in Power systems,Cyber Security, Robotics and Automation 
 - 🌱 I’m currently learning Machine learning 
 - 💞️ I’m looking to collaborate on any projects dealing with Cyber-Physical Systems, Robotics, Analog or Digital projects
 - 📫 How to reach me at my Gmail - gaurav.jagadeeshgj@gmail.com
