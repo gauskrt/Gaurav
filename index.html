@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ikarus | Engineer • Researcher • Systems Builder</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0b0f14;
+      --card: #121821;
+      --border: #1f2a38;
+      --text: #f3f4f6;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --hover: #1e293b;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      opacity: 0.85;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: 0.25s ease;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: var(--hover);
+      transform: translateY(-2px);
+    }
+
+    /* SECTION TITLES */
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 40px;
+      max-width: 700px;
+    }
+
+    /* CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: 18px;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    /* ABOUT */
+
+    .about p {
+      color: var(--muted);
+      max-width: 850px;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 768px) {
+      section {
+        padding: 70px 0;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+
+      .hero h2 {
+        font-size: 1.1rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container">
+
+      <h1>IKARUS</h1>
+
+      <h2>
+        Engineer • Researcher • Systems Builder
+      </h2>
+
+      <p>
+        Building industrial communication systems,
+        secure distributed architectures,
+        protocol abstractions,
+        visualization engines,
+        and infrastructure software.
+
+        Somewhere between OT engineering,
+        backend systems,
+        and controlled technological rebellion.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="https://github.com/YOUR_GITHUB" target="_blank">
+          GitHub
+        </a>
+
+        <a class="btn" href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">
+          LinkedIn
+        </a>
+
+        <a class="btn" href="mailto:your@email.com">
+          Contact
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about">
+    <div class="container">
+
+      <h2 class="section-title">About</h2>
+
+      <p class="section-subtitle">
+        I work on industrial communication systems,
+        secure architectures,
+        and protocol-level software engineering.
+      </p>
+
+      <p>
+        My primary interests include IEC 61850,
+        OT cybersecurity,
+        distributed systems,
+        visualization engines,
+        AI tooling,
+        and infrastructure software.
+      </p>
+
+      <p>
+        I enjoy understanding systems from first principles
+        and rebuilding them with modern architectures.
+        Most software becomes fragile because abstraction layers
+        are stacked like unstable pancakes at a conference buffet.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">Featured Projects</h2>
+
+      <p class="section-subtitle">
+        Real systems. Real architecture.
+        Minimal tutorial-copying energy.
+      </p>
+
+      <div class="grid">
+
+        <!-- PROJECT 1 -->
+
+        <div class="card">
+          <h3>IEC 61850 over HTTP/WebSockets</h3>
+
+          <p>
+            Research and implementation of ACSI service remapping
+            using REST and WebSockets while preserving operational semantics
+            of MMS-based systems.
+          </p>
+
+          <div class="tag-container">
+            <span class="tag">IEC 61850</span>
+            <span class="tag">MMS</span>
+            <span class="tag">WebSockets</span>
+            <span class="tag">OData</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+
+        <div class="card">
+          <h3>JSON → SVG Infrastructure Generator</h3>
+
+          <p>
+            Python rendering engine that dynamically generates
+            electrical and network topology diagrams from structured JSON.
+          </p>
+
+          <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">SVG</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Visualization</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+
+        <div class="card">
+          <h3>Zero Trust OT Architecture</h3>
+
+          <p>
+            Research into secure industrial communication systems
+            using identity-aware infrastructure,
+            certificate-based trust,
+            and segmented communication domains.
+          </p>
+
+          <div class="tag-container">
+            <span class="tag">Cybersecurity</span>
+            <span class="tag">TLS</span>
+            <span class="tag">PKI</span>
+            <span class="tag">OT Systems</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+
+        <div class="card">
+          <h3>Multiplayer Shooter Engine</h3>
+
+          <p>
+            Built a socket-based multiplayer game in Python
+            with client synchronization,
+            randomized maps,
+            collision systems,
+            and projectile logic.
+          </p>
+
+          <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">Networking</span>
+            <span class="tag">Pygame</span>
+            <span class="tag">Sockets</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 5 -->
+
+        <div class="card">
+          <h3>Local AI PDF Chatbot</h3>
+
+          <p>
+            Locally hosted multilingual AI assistant
+            capable of querying uploaded PDFs securely
+            through a web interface.
+          </p>
+
+          <div class="tag-container">
+            <span class="tag">AI</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">RAG</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 6 -->
+
+        <div class="card">
+          <h3>Electrochemical Sweat Sensor</h3>
+
+          <p>
+            Experimental sodium detection system
+            using potentiometric sensing principles
+            for wearable biosensing applications.
+          </p>
+
+          <div class="tag-container">
+            <span class="tag">Sensors</span>
+            <span class="tag">Electrochemistry</span>
+            <span class="tag">Embedded</span>
+            <span class="tag">Research</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">Technical Areas</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Languages</h3>
+
+          <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Protocols & Systems</h3>
+
+          <div class="tag-container">
+            <span class="tag">IEC 61850</span>
+            <span class="tag">MMS</span>
+            <span class="tag">OData</span>
+            <span class="tag">WebSockets</span>
+            <span class="tag">TLS</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Infrastructure</h3>
+
+          <div class="tag-container">
+            <span class="tag">Linux</span>
+            <span class="tag">Docker</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">FastAPI</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">Engineering Philosophy</h2>
+
+      <p class="section-subtitle">
+        Technology becomes dangerous when people deploy abstractions
+        they do not understand.
+      </p>
+
+      <div class="card">
+
+        <p>
+          I prefer:
+        </p>
+
+        <br>
+
+        <div class="tag-container">
+          <span class="tag">First Principles</span>
+          <span class="tag">Protocol-Level Understanding</span>
+          <span class="tag">Security by Design</span>
+          <span class="tag">Systems Thinking</span>
+          <span class="tag">Scalable Architecture</span>
+          <span class="tag">Research-Driven Engineering</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+      © 2026 Ikarus
+
+      <br><br>
+
+      Built with HTML, CSS,
+      and mild disappointment in modern software engineering.
+    </div>
+  </footer>
+
+</body>
+</html>
