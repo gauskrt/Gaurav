@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaurav Jagadeesh | Engineer</title>
 
-  <title>Gaurav Jagadeesh | Supposed Engineer</title>
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -23,29 +24,22 @@
       --bg: #06070b;
       --panel: rgba(14, 17, 25, 0.8);
       --border: rgba(255, 255, 255, 0.08);
-
       --text: #f3f4f6;
       --muted: #94a3b8;
-
       --blue: #38bdf8;
       --green: #4ade80;
       --purple: #a78bfa;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background:
         radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 30%),
         radial-gradient(circle at bottom right, rgba(167, 139, 250, 0.08), transparent 30%),
         var(--bg);
-
       color: var(--text);
-
       font-family: "Inter", sans-serif;
-
       overflow-x: hidden;
     }
 
@@ -54,15 +48,11 @@
     .grid-overlay {
       position: fixed;
       inset: 0;
-
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-
       background-size: 40px 40px;
-
       z-index: -2;
-
       mask-image: radial-gradient(circle at center, black 20%, transparent 90%);
     }
 
@@ -72,9 +62,7 @@
       opacity: 0.03;
       z-index: -1;
       pointer-events: none;
-
-      background-image:
-        url("https://grainy-gradients.vercel.app/noise.svg");
+      background-image: url("https://grainy-gradients.vercel.app/noise.svg");
     }
 
     /* NAV */
@@ -83,24 +71,18 @@
       position: fixed;
       top: 0;
       width: 100%;
-
       backdrop-filter: blur(14px);
-
       background: rgba(5, 7, 12, 0.65);
-
       border-bottom: 1px solid var(--border);
-
       z-index: 1000;
     }
 
     .nav-container {
       width: min(1200px, 92%);
       margin: auto;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       padding: 18px 0;
     }
 
@@ -108,11 +90,13 @@
       font-size: 1rem;
       font-family: "JetBrains Mono", monospace;
       color: var(--green);
+      text-decoration: none;
     }
 
     .nav-links {
       display: flex;
       gap: 30px;
+      align-items: center;
     }
 
     .nav-links a {
@@ -120,29 +104,105 @@
       color: var(--muted);
       transition: 0.2s ease;
       font-size: 0.95rem;
+      position: relative;
     }
 
-    .nav-links a:hover {
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--blue);
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
       color: white;
     }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-contact {
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.06);
+      color: var(--blue) !important;
+      font-size: 0.85rem !important;
+      font-family: "JetBrains Mono", monospace;
+      transition: 0.2s ease;
+    }
+
+    .nav-contact:hover {
+      background: rgba(56, 189, 248, 0.14) !important;
+      border-color: var(--blue) !important;
+    }
+
+    .nav-contact::after { display: none !important; }
+
+    /* HAMBURGER */
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--muted);
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: rgba(5, 7, 12, 0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+    }
+
+    .mobile-menu a {
+      padding: 16px 4%;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1rem;
+      border-bottom: 1px solid var(--border);
+      transition: 0.2s ease;
+    }
+
+    .mobile-menu a:hover { color: white; background: rgba(255,255,255,0.03); }
+    .mobile-menu.open { display: flex; }
 
     /* HERO */
 
     .hero {
       min-height: 100vh;
-
       display: flex;
       align-items: center;
-
       width: min(1200px, 92%);
       margin: auto;
-
       position: relative;
     }
 
-    .hero-content {
-      max-width: 900px;
-    }
+    .hero-content { max-width: 900px; }
 
     .terminal {
       color: var(--green);
@@ -155,39 +215,29 @@
     h1 {
       font-size: clamp(4rem, 12vw, 8rem);
       line-height: 0.9;
-
       letter-spacing: -6px;
-
       font-weight: 900;
-
       margin-bottom: 25px;
     }
 
     .gradient-text {
       background: linear-gradient(to right, #ffffff, #38bdf8);
-
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero h2 {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--muted);
-
       font-weight: 400;
-
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
     .hero p {
-      max-width: 750px;
-
+      max-width: 680px;
       color: #cbd5e1;
-
       line-height: 1.9;
-
-      font-size: 1.08rem;
-
+      font-size: 1.05rem;
       margin-bottom: 45px;
     }
 
@@ -198,26 +248,21 @@
     }
 
     .btn {
-      padding: 15px 24px;
-
+      padding: 14px 22px;
       border-radius: 14px;
-
       border: 1px solid var(--border);
-
       background: rgba(255, 255, 255, 0.03);
-
       text-decoration: none;
-
       color: white;
-
       transition: 0.25s ease;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: inherit;
     }
 
     .btn:hover {
       transform: translateY(-3px);
-
       border-color: var(--blue);
-
       background: rgba(56, 189, 248, 0.08);
     }
 
@@ -227,18 +272,14 @@
 
     /* SECTIONS */
 
-    section {
-      padding: 120px 0;
-    }
+    section { padding: 120px 0; }
 
     .container {
       width: min(1200px, 92%);
       margin: auto;
     }
 
-    .section-top {
-      margin-bottom: 60px;
-    }
+    .section-top { margin-bottom: 60px; }
 
     .section-top h3 {
       font-size: 2.3rem;
@@ -251,128 +292,7 @@
       line-height: 1.8;
     }
 
-    /* PROJECTS */
-
-    .projects-grid {
-      display: grid;
-
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-      gap: 28px;
-    }
-
-    .project {
-      background: var(--panel);
-
-      border: 1px solid var(--border);
-
-      border-radius: 24px;
-
-      padding: 32px;
-
-      transition: 0.3s ease;
-
-      backdrop-filter: blur(20px);
-    }
-
-    .project:hover {
-      transform: translateY(-6px);
-
-      border-color: rgba(56, 189, 248, 0.35);
-    }
-
-    .project-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      margin-bottom: 20px;
-    }
-
-    .project h4 {
-      font-size: 1.25rem;
-    }
-
-    .project span {
-      font-size: 0.85rem;
-
-      color: var(--green);
-
-      font-family: "JetBrains Mono", monospace;
-    }
-
-    .project p {
-      color: var(--muted);
-
-      line-height: 1.8;
-
-      margin-bottom: 24px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tag {
-      padding: 8px 14px;
-
-      border-radius: 999px;
-
-      font-size: 0.82rem;
-
-      border: 1px solid rgba(255, 255, 255, 0.08);
-
-      background: rgba(255, 255, 255, 0.03);
-
-      color: #cbd5e1;
-    }
-
-    /* RESEARCH */
-
-    .research {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 28px;
-    }
-
-    .research-card {
-      padding: 35px;
-
-      border-radius: 24px;
-
-      background: var(--panel);
-
-      border: 1px solid var(--border);
-    }
-
-    .research-card h4 {
-      margin-bottom: 18px;
-      font-size: 1.3rem;
-    }
-
-    .research-card ul {
-      list-style: none;
-    }
-
-    .research-card li {
-      margin-bottom: 16px;
-
-      color: var(--muted);
-
-      line-height: 1.7;
-    }
-
-    .research-card li::before {
-      content: "> ";
-      color: var(--green);
-      font-family: monospace;
-    }
-
-    /* EXPERIENCE & EDUCATION TIMELINE */
+    /* TIMELINE */
 
     .timeline {
       position: relative;
@@ -457,46 +377,252 @@
       font-size: 0.95rem;
     }
 
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      transition: 0.3s ease;
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .project h4 { font-size: 1.25rem; }
+
+    .project-status {
+      font-size: 0.85rem;
+      color: var(--green);
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .project p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: #cbd5e1;
+    }
+
+    .project-link {
+      font-size: 0.82rem;
+      color: var(--blue);
+      text-decoration: none;
+      font-family: "JetBrains Mono", monospace;
+      opacity: 0.7;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .project-link:hover { opacity: 1; }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-group {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(20px);
+      transition: 0.3s ease;
+    }
+
+    .skill-group:hover { border-color: rgba(167, 139, 250, 0.3); }
+
+    .skill-group-label {
+      font-size: 0.78rem;
+      color: var(--purple);
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-pill {
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      transition: 0.2s ease;
+    }
+
+    .skill-pill:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* RESEARCH */
+
+    .research {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .research-card {
+      padding: 35px;
+      border-radius: 24px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
+
+    .research-card h4 {
+      margin-bottom: 18px;
+      font-size: 1.3rem;
+    }
+
+    .research-card ul { list-style: none; }
+
+    .research-card li {
+      margin-bottom: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .research-card li::before {
+      content: "> ";
+      color: var(--green);
+      font-family: monospace;
+    }
+
     /* FOOTER */
 
     footer {
-      padding: 50px 0;
-
+      padding: 60px 0;
       border-top: 1px solid var(--border);
-
       text-align: center;
-
       color: var(--muted);
     }
 
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: 0.2s ease;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .footer-links a:hover { color: var(--blue); }
+
     footer p {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* SCROLL ANIMATIONS */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* PRINT */
+
+    @media print {
+      nav, .noise, .grid-overlay, .hamburger, .mobile-menu { display: none !important; }
+      body { background: white; color: #111; font-size: 11pt; }
+      .hero { min-height: auto; padding: 40px 0 20px; }
+      h1 { font-size: 2.5rem; letter-spacing: -2px; color: #111; }
+      .gradient-text { -webkit-text-fill-color: #111; background: none; }
+      .hero h2, .hero p { color: #444; }
+      .buttons { display: none; }
+      section { padding: 30px 0; }
+      .project, .timeline-item, .research-card, .skill-group {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+        backdrop-filter: none;
+      }
+      .project p, .timeline-desc, .research-card li { color: #555; }
+      .timeline-org { color: #0369a1; }
+      .tag, .skill-pill { border: 1px solid #ccc; color: #555; background: #f3f3f3; }
+      .timeline::before { background: #ccc; }
+      footer { border-top: 1px solid #ddd; }
+      footer p, .footer-links a { color: #777; }
+      .fade-up { opacity: 1; transform: none; }
     }
 
     /* MOBILE */
 
     @media(max-width: 900px) {
-
-      .research {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 120px;
-      }
-
-      h1 {
-        letter-spacing: -3px;
-      }
-
-      .hero h2 {
-        font-size: 1.15rem;
-      }
-
+      .research { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero { padding-top: 120px; }
+      h1 { letter-spacing: -3px; }
+      .hero h2 { font-size: 1.1rem; }
+      .timeline { padding-left: 20px; }
+      .timeline-item::before { left: -20px; }
     }
   </style>
 </head>
@@ -509,29 +635,40 @@
   <!-- NAV -->
 
   <nav>
-
     <div class="nav-container">
 
-      <div class="logo">
-        > Gaurav Jagadeesh
-      </div>
+      <a class="logo" href="#">> Gaurav Jagadeesh</a>
 
       <div class="nav-links">
-        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#research">Research</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-contact">Contact ↗</a>
       </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
     </div>
 
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#education" class="mobile-link">Education</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#research" class="mobile-link">Research</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
   </nav>
 
   <!-- HERO -->
 
   <section class="hero">
-
     <div class="hero-content">
 
       <div class="terminal">
@@ -539,251 +676,29 @@
       </div>
 
       <h1>
-        <span class="gradient-text">
-          Gaurav Jagadeesh
-        </span>
+        <span class="gradient-text">Gaurav<br>Jagadeesh</span>
       </h1>
 
       <h2>
-        Electrical Engineer • Power System • Systems Engineer • Protocol Engineer • Researcher • Designer
+        Project Engineer · OT Cybersecurity · IEC 61850 · Embedded Systems · Researcher
       </h2>
 
       <p>
-        I build industrial communication systems,
-        secure distributed architectures,
-        protocol abstractions,
-        AI tooling,
-        and visualization engines.
-
-        My work spans IEC 61850,
-        OT cybersecurity,
-        networking systems,
-        infrastructure software,
-        and experimental engineering research.
-
-        Most software today is layers of abstraction duct-taped together until latency becomes a personality trait.
-        I prefer understanding the stack properly.
+        I secure critical infrastructure, build protocol-level tooling,
+        and occasionally make a chess board move pieces by itself.
+        My work spans OT cybersecurity, industrial communication standards,
+        embedded hardware, and AI tooling — with a preference for understanding
+        the stack rather than deploying another abstraction layer on top of it.
       </p>
 
       <div class="buttons">
-
-        <a class="btn btn-primary" href="https://github.com/gauskrt" target="_blank">
-          GitHub
-        </a>
-
-        <a class="btn" href="https://www.linkedin.com/in/gaurav-jagadeesh-951938193?utm_source=share_via&utm_content=profile&utm_medium=member_android">
-          LinkedIn
-        </a>
-
-        <a class="btn" href="mailto:gaurav.jagadeeshgj@email.com">
-          Contact
-        </a>
-
+        <a class="btn btn-primary" href="https://github.com/gauskrt" target="_blank">GitHub ↗</a>
+        <a class="btn" href="https://www.linkedin.com/in/gaurav-jagadeesh-951938193" target="_blank">LinkedIn ↗</a>
+        <a class="btn" href="mailto:gaurav.jagadeeshgj@gmail.com">Email</a>
+        <button class="btn" onclick="window.print()">Print / PDF</button>
       </div>
 
     </div>
-
-  </section>
-
-  <!-- PROJECTS -->
-
-  <section id="projects">
-
-    <div class="container">
-
-      <div class="section-top">
-
-        <h3>
-          Featured Systems
-        </h3>
-
-        <p>
-          Research-driven engineering projects focused on communication systems,
-          secure architectures,
-          visualization pipelines,
-          and distributed infrastructure.
-        </p>
-
-      </div>
-
-      <div class="projects-grid">
-
-        <div class="project">
-
-          <div class="project-title">
-            <h4>Automated Chess Board</h4>
-            <span>BUILDING</span>
-          </div>
-
-          <p>
-            Physical chess board that moves pieces autonomously using
-            an XY gantry and electromagnet — plays against humans
-            or executes engine moves with actual hardware motion.
-          </p>
-
-          <div class="tags">
-            <div class="tag">Embedded</div>
-            <div class="tag">Robotics</div>
-            <div class="tag">Chess Engine</div>
-            <div class="tag">Motor Control</div>
-          </div>
-
-        </div>
-
-        <div class="project">
-
-          <div class="project-title">
-            <h4>JSON → SVG Generator</h4>
-            <span>BUILDING</span>
-          </div>
-
-          <p>
-            Dynamic SVG rendering engine for generating electrical
-            and industrial topology diagrams from structured JSON input.
-          </p>
-
-          <div class="tags">
-            <div class="tag">Python</div>
-            <div class="tag">SVG</div>
-            <div class="tag">Automation</div>
-            <div class="tag">Rendering</div>
-          </div>
-
-        </div>
-
-        <div class="project">
-
-          <div class="project-title">
-            <h4>Zero Trust OT Architecture</h4>
-            <span>RESEARCH</span>
-          </div>
-
-          <p>
-            Investigation into identity-aware industrial communication systems,
-            segmented trust domains,
-            and secure protocol architectures.
-          </p>
-
-          <div class="tags">
-            <div class="tag">Common Sense</div>
-            <div class="tag">Cybersecurity</div>
-            <div class="tag">TLS</div>
-            <div class="tag">PKI</div>
-            <div class="tag">OT</div>
-          </div>
-
-        </div>
-
-        <div class="project">
-
-          <div class="project-title">
-            <h4>Multiplayer Networking Engine</h4>
-            <span>EXPERIMENTAL</span>
-          </div>
-
-          <p>
-            Socket-based multiplayer game engine using Python and Pygame
-            with synchronization logic,
-            projectiles,
-            and randomized obstacle systems.
-          </p>
-
-          <div class="tags">
-            <div class="tag">Python</div>
-            <div class="tag">Sockets</div>
-            <div class="tag">Pygame</div>
-            <div class="tag">Realtime</div>
-            <div class="tag">To Kill Time</div>
-          </div>
-
-        </div>
-
-        <div class="project">
-
-          <div class="project-title">
-            <h4>Local AI PDF Chatbot</h4>
-            <span>ACTIVE</span>
-          </div>
-
-          <p>
-            Secure locally-hosted multilingual chatbot capable of
-            querying uploaded PDFs using retrieval-augmented workflows.
-          </p>
-
-          <div class="tags">
-            <div class="tag">LLMs</div>
-            <div class="tag">FastAPI</div>
-            <div class="tag">RAG</div>
-            <div class="tag">Local AI</div>
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- RESEARCH -->
-
-  <section id="research">
-
-    <div class="container">
-
-      <div class="section-top">
-
-        <h3>
-          Research Areas
-        </h3>
-
-        <p>
-          Technical investigations and architectural exploration.
-          Because modern infrastructure somehow keeps getting rebuilt by people
-          who think protocol specifications are optional reading.
-        </p>
-
-      </div>
-
-      <div class="research">
-
-        <div class="research-card">
-
-          <h4>
-            Current Investigations
-          </h4>
-
-          <ul>
-            <li>REST/OData remapping for IEC 61850 services</li>
-            <li>OT zero-trust communication models</li>
-            <li>Protocol abstraction layers</li>
-            <li>Secure infrastructure design</li>
-            <li>Distributed event synchronization</li>
-          </ul>
-
-        </div>
-
-        <div class="research-card">
-
-          <h4>
-            Engineering Philosophy
-          </h4>
-
-          <ul>
-            <li>First-principles engineering</li>
-            <li>Protocol-level understanding</li>
-            <li>Security before convenience</li>
-            <li>Understand abstractions before deploying them</li>
-            <li>Systems should remain explainable at scale</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
   </section>
 
   <!-- EXPERIENCE -->
@@ -791,18 +706,18 @@
   <section id="experience">
     <div class="container">
 
-      <div class="section-top">
+      <div class="section-top fade-up">
         <h3>Work Experience</h3>
         <p>
-          A trail of companies that trusted me with real problems.
+          A trail of organisations that handed me real problems.
           Turns out power grids, EVs, and embedded security
-          all have one thing in common — they really dislike bugs.
+          all hate bugs in approximately the same way.
         </p>
       </div>
 
       <div class="timeline">
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-up">
           <div class="timeline-header">
             <div class="timeline-title">Project Engineer</div>
             <div class="timeline-period">Oct 2024 → Present</div>
@@ -812,17 +727,18 @@
           <div class="timeline-desc">
             Working on OT cybersecurity projects under India's national power grid infrastructure.
             Focused on securing industrial communication systems, protocol-level threat analysis,
-            and building tools that actually understand what IEC 61850 means at the wire level.
+            and building tooling that actually understands what IEC 61850 means at the wire level.
           </div>
           <div class="tags" style="margin-top:16px">
             <div class="tag">OT Security</div>
             <div class="tag">Python</div>
             <div class="tag">IEC 61850</div>
             <div class="tag">Project Design</div>
+            <div class="tag">CTI</div>
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-up">
           <div class="timeline-header">
             <div class="timeline-title">Senior Research Fellow</div>
             <div class="timeline-period">Sep 2023 → Oct 2024</div>
@@ -830,31 +746,31 @@
           <div class="timeline-org">Indian Institute of Science (IISc)</div>
           <div class="timeline-location">// Bengaluru, Karnataka</div>
           <div class="timeline-desc">
-            Collaborated with Power Grid Corporation of India on a project exploring
-            cyber-physical security aspects of power grid infrastructure.
-            Dug into embedded systems, network security, and what happens when
-            someone treats a SCADA system like a web app. Spoiler: nothing good.
+            Collaborated with Power Grid Corporation of India exploring cyber-physical security
+            in power grid infrastructure. Investigated embedded systems vulnerabilities, network security,
+            and what happens when someone treats a SCADA system like a web app. Spoiler: nothing good.
           </div>
           <div class="tags" style="margin-top:16px">
             <div class="tag">Cyber-Physical Systems</div>
             <div class="tag">Embedded Security</div>
             <div class="tag">SCADA</div>
             <div class="tag">Research</div>
+            <div class="tag">Network Security</div>
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-up">
           <div class="timeline-header">
             <div class="timeline-title">Hardware & Embedded Intern</div>
-            <div class="timeline-period">~1 yr · 2022–2023</div>
+            <div class="timeline-period">2022 → 2023 · 1 yr</div>
           </div>
           <div class="timeline-org">Bullwork Mobility</div>
-          <div class="timeline-location">// Electric Vehicle Startup</div>
+          <div class="timeline-location">// Electric Vehicle Startup · Bengaluru</div>
           <div class="timeline-desc">
-            Exposed to the full lifecycle of commercial EV product development —
-            market-grade PCB design, power electronics, motor technology,
-            and network communications. Learned that "good enough" has very different
-            definitions in a startup vs. a power substation.
+            Full lifecycle of commercial EV product development — market-grade PCB design,
+            power electronics, motor technology, and network communications.
+            Learned that "good enough" carries radically different definitions
+            in a startup versus a power substation.
           </div>
           <div class="tags" style="margin-top:16px">
             <div class="tag">KiCAD</div>
@@ -864,7 +780,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-up">
           <div class="timeline-header">
             <div class="timeline-title">Industrial Trainee</div>
             <div class="timeline-period">Sep 2021 → Oct 2021</div>
@@ -874,7 +790,7 @@
           <div class="timeline-desc">
             Under the guidance of Asst. Executive Engineer Anand AD.
             Learned about transformers, power distribution, SCADA, and operational redundancy —
-            concepts conspicuously absent from the university syllabus.
+            concepts conspicuously missing from the university syllabus.
             Confirmed that textbooks and substations speak entirely different languages.
           </div>
           <div class="tags" style="margin-top:16px">
@@ -894,7 +810,7 @@
   <section id="education">
     <div class="container">
 
-      <div class="section-top">
+      <div class="section-top fade-up">
         <h3>Education</h3>
         <p>
           Where it all started. Four years of formal confusion
@@ -904,25 +820,24 @@
 
       <div class="timeline">
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-up">
           <div class="timeline-header">
-            <div class="timeline-title">Bachelor of Engineering — Electrical & Electronics</div>
+            <div class="timeline-title">Bachelor of Engineering — Electrical &amp; Electronics</div>
             <div class="timeline-period">Mar 2019 → Mar 2023</div>
           </div>
           <div class="timeline-org">RNS Institute of Technology</div>
-          <div class="timeline-location">// Bengaluru, Karnataka, India</div>
+          <div class="timeline-location">// Bengaluru, Karnataka, India · VTU Affiliated</div>
           <div class="timeline-desc">
-            Studied the fundamentals of electrical engineering while slowly realizing
-            that the most interesting problems live at the intersection of hardware,
-            software, and the internet. Was student representative of the department,
-            participated in cultural events, and dabbled in enough interdisciplinary
-            projects to permanently ruin my ability to stay in one lane.
+            Studied the fundamentals of electrical engineering while slowly realising
+            the most interesting problems live at the intersection of hardware, software, and networks.
+            Student representative of the department, participated in cultural events,
+            and dabbled in enough interdisciplinary projects to permanently ruin the ability to stay in one lane.
           </div>
           <div class="tags" style="margin-top:16px">
             <div class="tag">EEE</div>
             <div class="tag">Power Systems</div>
             <div class="tag">Embedded Systems</div>
-            <div class="tag">Student Rep</div>
+            <div class="tag">Student Representative</div>
           </div>
         </div>
 
@@ -930,21 +845,293 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- PROJECTS -->
+
+  <section id="projects">
+    <div class="container">
+
+      <div class="section-top fade-up">
+        <h3>Featured Systems</h3>
+        <p>
+          Things built because they didn't exist, or because the existing version
+          was bad enough to count as a personal insult.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project fade-up">
+          <div class="project-title">
+            <h4>Automated Chess Board</h4>
+            <span class="project-status">BUILDING</span>
+          </div>
+          <p>
+            Physical chess board that moves pieces autonomously using
+            an XY gantry and electromagnet — plays against humans
+            or executes engine moves with actual hardware motion.
+          </p>
+          <div class="project-footer">
+            <div class="tags">
+              <div class="tag">Embedded</div>
+              <div class="tag">Robotics</div>
+              <div class="tag">Chess Engine</div>
+              <div class="tag">Motor Control</div>
+            </div>
+            <a class="project-link" href="https://github.com/gauskrt" target="_blank">github ↗</a>
+          </div>
+        </div>
+
+        <div class="project fade-up">
+          <div class="project-title">
+            <h4>JSON → SVG Generator</h4>
+            <span class="project-status">BUILDING</span>
+          </div>
+          <p>
+            Dynamic SVG rendering engine for generating electrical
+            and industrial topology diagrams from structured JSON input.
+          </p>
+          <div class="project-footer">
+            <div class="tags">
+              <div class="tag">Python</div>
+              <div class="tag">SVG</div>
+              <div class="tag">Automation</div>
+              <div class="tag">Rendering</div>
+            </div>
+            <a class="project-link" href="https://github.com/gauskrt" target="_blank">github ↗</a>
+          </div>
+        </div>
+
+        <div class="project fade-up">
+          <div class="project-title">
+            <h4>Zero Trust OT Architecture</h4>
+            <span class="project-status">RESEARCH</span>
+          </div>
+          <p>
+            Investigation into identity-aware industrial communication systems,
+            segmented trust domains, and secure protocol architectures for OT environments.
+          </p>
+          <div class="project-footer">
+            <div class="tags">
+              <div class="tag">Common Sense</div>
+              <div class="tag">Cybersecurity</div>
+              <div class="tag">TLS</div>
+              <div class="tag">PKI</div>
+              <div class="tag">OT</div>
+            </div>
+            <a class="project-link" href="https://github.com/gauskrt" target="_blank">github ↗</a>
+          </div>
+        </div>
+
+        <div class="project fade-up">
+          <div class="project-title">
+            <h4>Multiplayer Networking Engine</h4>
+            <span class="project-status">EXPERIMENTAL</span>
+          </div>
+          <p>
+            Socket-based multiplayer game engine using Python and Pygame
+            with synchronization logic, projectiles, and randomized obstacle systems.
+          </p>
+          <div class="project-footer">
+            <div class="tags">
+              <div class="tag">Python</div>
+              <div class="tag">Sockets</div>
+              <div class="tag">Pygame</div>
+              <div class="tag">Realtime</div>
+              <div class="tag">To Kill Time</div>
+            </div>
+            <a class="project-link" href="https://github.com/gauskrt" target="_blank">github ↗</a>
+          </div>
+        </div>
+
+        <div class="project fade-up">
+          <div class="project-title">
+            <h4>Local AI PDF Chatbot</h4>
+            <span class="project-status">ACTIVE</span>
+          </div>
+          <p>
+            Secure locally-hosted multilingual chatbot capable of querying uploaded PDFs
+            using retrieval-augmented workflows. No data leaves the machine. That's the point.
+          </p>
+          <div class="project-footer">
+            <div class="tags">
+              <div class="tag">LLMs</div>
+              <div class="tag">FastAPI</div>
+              <div class="tag">RAG</div>
+              <div class="tag">Local AI</div>
+            </div>
+            <a class="project-link" href="https://github.com/gauskrt" target="_blank">github ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-top fade-up">
+        <h3>Skills</h3>
+        <p>
+          Tools I actually use, not a keyword-stuffed list for ATS systems.
+          Though it does rank well for ATS systems. Win-win.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-label">// Security &amp; Protocols</div>
+          <div class="skill-pills">
+            <div class="skill-pill">IEC 61850</div>
+            <div class="skill-pill">OT Security</div>
+            <div class="skill-pill">Cybersecurity</div>
+            <div class="skill-pill">CTI</div>
+            <div class="skill-pill">TLS / PKI</div>
+            <div class="skill-pill">SCADA</div>
+            <div class="skill-pill">Zero Trust</div>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-label">// Languages</div>
+          <div class="skill-pills">
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">C</div>
+            <div class="skill-pill">C++</div>
+            <div class="skill-pill">HTML / CSS</div>
+            <div class="skill-pill">Bash</div>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-label">// Hardware &amp; Embedded</div>
+          <div class="skill-pills">
+            <div class="skill-pill">KiCAD</div>
+            <div class="skill-pill">PCB Design</div>
+            <div class="skill-pill">Power Electronics</div>
+            <div class="skill-pill">Motor Control</div>
+            <div class="skill-pill">Embedded Systems</div>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-label">// Software &amp; Tools</div>
+          <div class="skill-pills">
+            <div class="skill-pill">FastAPI</div>
+            <div class="skill-pill">RAG / LLMs</div>
+            <div class="skill-pill">Git</div>
+            <div class="skill-pill">Linux</div>
+            <div class="skill-pill">Network Analysis</div>
+            <div class="skill-pill">SVG Rendering</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+
+  <section id="research">
+    <div class="container">
+
+      <div class="section-top fade-up">
+        <h3>Research Areas</h3>
+        <p>
+          Technical investigations and architectural exploration.
+          Because modern infrastructure keeps getting rebuilt by people
+          who treat protocol specifications as optional reading.
+        </p>
+      </div>
+
+      <div class="research">
+
+        <div class="research-card fade-up">
+          <h4>Current Investigations</h4>
+          <ul>
+            <li>OT zero-trust communication models</li>
+            <li>Cyber-physical threat modelling for power grids</li>
+            <li>Protocol abstraction and secure remapping layers</li>
+            <li>Secure infrastructure design patterns</li>
+            <li>Distributed event synchronization</li>
+          </ul>
+        </div>
+
+        <div class="research-card fade-up">
+          <h4>Engineering Philosophy</h4>
+          <ul>
+            <li>First-principles engineering</li>
+            <li>Protocol-level understanding before deployment</li>
+            <li>Security before convenience</li>
+            <li>Understand abstractions before using them</li>
+            <li>Systems should remain explainable at scale</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
 
   <footer id="contact">
-
-    <p>
-      © 2026 IKARUS
-    </p>
-
-    <p>
-      Built with HTML, CSS, caffeine,
-      and mild disappointment in modern enterprise software.
-    </p>
-
+    <div class="footer-links">
+      <a href="mailto:gaurav.jagadeeshgj@gmail.com">gaurav.jagadeeshgj@gmail.com</a>
+      <a href="https://github.com/gauskrt" target="_blank">github.com/gauskrt</a>
+      <a href="https://www.linkedin.com/in/gaurav-jagadeesh-951938193" target="_blank">linkedin ↗</a>
+    </div>
+    <p>© 2026 IKARUS · Bengaluru, Karnataka, India</p>
+    <p>Built with HTML, CSS, caffeine, and mild disappointment in modern enterprise software.</p>
   </footer>
 
-</body>
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
 
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Scroll-spy: highlight active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => spyObserver.observe(s));
+
+    // Fade-up on scroll
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+  </script>
+
+</body>
 </html>
