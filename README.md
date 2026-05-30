@@ -1,7 +1,5 @@
 
 
-
-
 # Gaurav Jagadeesh
 
 > Engineer • Researcher • Systems Builder
